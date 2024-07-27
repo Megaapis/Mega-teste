@@ -1,114 +1,107 @@
 from flask import Flask, jsonify
-import random
 import json
+import random
 
 app = Flask(__name__)
 
-# Criador da API
-criador = "Come-tias"
+criador = "NomeDoCriador"
 
-# Função para carregar URLs de um arquivo JSON
-def load_urls(filename):
-    with open(filename, 'r') as file:
-        return json.load(file)
+# Função para carregar URLs a partir de arquivos JSON
+def carregar_urls(arquivo):
+    try:
+        with open(arquivo, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
 
-# Dicionário de categorias e seus arquivos
-categories = {
-    'aesthetic': 'db/aesthetic.json',
-    'ahegao': 'db/ahegao.json',
-    'akira': 'db/akira.json',
-    'ass': 'db/ass.json',
-    'bonec': 'db/bonec.json',
-    'Boruto': 'db/Boruto.json',
-    'cosplayloli': 'db/cosplayloli.json',
-    'cosplay': 'db/cosplay.json',
-    'cosplaysagirl': 'db/cosplaysagirl.json',
-    'cum': 'db/cum.json',
-    'Deidara': 'db/Deidara.json',
-    'Elaine': 'db/Elaine.json',
-    'Emilia': 'db/Emilia.json',
-    'ero': 'db/ero.json',
-    'erza': 'db/erza.json',
-    'feminotrava': 'db/feminotrava.json',
-    'foto18': 'db/foto18.json',
-    'GameWallp': 'db/GameWallp.json',
-    'Hinata': 'db/Hinata.json',
-    'itachi': 'db/itachi.json',
-    'itori': 'db/itori.json',
-    'Lolis': 'db/Lolis.json',
-    'Madara': 'db/Madara.json',
-    'manga': 'db/manga.json',
-    'masturbation': 'db/masturbation.json',
-    'meme': 'db/meme.json',
-    'memes-video': 'db/memes-video.json',
-    'mikasa': 'db/mikasa.json',
-    'minato': 'db/minato.json',
-    'neko': 'db/neko.json',
-    'neko2': 'db/neko2.json',
-    'nezuko': 'db/nezuko.json',
-    'nsfwelisa': 'db/nsfwelisa.json',
-    'nsfwlolis': 'db/nsfwlolis.json',
-    'nsfw': 'db/nsfw.json',
-    'mia': 'db/mia.json',
-    'onepiece': 'db/onepiece.json',
-    'orgy': 'db/orgy.json',
-    'pack': 'db/pack.json',
-    'pokemon': 'db/pokemon.json',
-    'pussy': 'db/pussy.json',
-    'rize': 'db/rize.json',
-    'rose': 'db/rose.json',
-    'sagir': 'db/sagir.json',
-    'Sakura': 'db/Sakura.json',
-    'Sasuke': 'db/Sasuke.json',
-    'satanic': 'db/satanic.json',
-    'shotas': 'db/shotas.json',
-    'tentações': 'db/tentações.json',
-    'travazap': 'db/travazap.json',
-    'Tsunade': 'db/Tsunade.json',
-    'vídeo+18': 'db/vídeo+18.json',
-    'waifu': 'db/waifu.json',
-    'waifu2': 'db/waifu2.json',
-    'wallhp2': 'db/wallhp2.json',
-    'wallpapernime': 'db/wallpapernime.json',
-    'zettai': 'db/zettai.json'
+# Carregando URLs de diferentes categorias
+urls = {
+    "aesthetic": carregar_urls('db/aesthetic.json'),
+    "ahegao": carregar_urls('db/ahegao.json'),
+    "akira": carregar_urls('db/akira.json'),
+    "ass": carregar_urls('db/ass.json'),
+    "bonec": carregar_urls('db/bonec.json'),
+    "Boruto": carregar_urls('db/Boruto.json'),
+    "cosplayloli": carregar_urls('db/cosplayloli.json'),
+    "cosplay": carregar_urls('db/cosplay.json'),
+    "cosplaysagirl": carregar_urls('db/cosplaysagirl.json'),
+    "cum": carregar_urls('db/cum.json'),
+    "Deidara": carregar_urls('db/Deidara.json'),
+    "Elaine": carregar_urls('db/Elaine.json'),
+    "Emilia": carregar_urls('db/Emilia.json'),
+    "ero": carregar_urls('db/ero.json'),
+    "erza": carregar_urls('db/erza.json'),
+    "feminotrava": carregar_urls('db/feminotrava.json'),
+    "foto18": carregar_urls('db/foto18.json'),
+    "GameWallp": carregar_urls('db/GameWallp.json'),
+    "Hinata": carregar_urls('db/Hinata.json'),
+    "itachi": carregar_urls('db/itachi.json'),
+    "itori": carregar_urls('db/itori.json'),
+    "Lolis": carregar_urls('db/Lolis.json'),
+    "Madara": carregar_urls('db/Madara.json'),
+    "manga": carregar_urls('db/manga.json'),
+    "masturbation": carregar_urls('db/masturbation.json'),
+    "meme": carregar_urls('db/meme.json'),
+    "memes-video": carregar_urls('db/memes-video.json'),
+    "mikasa": carregar_urls('db/mikasa.json'),
+    "minato": carregar_urls('db/minato.json'),
+    "neko": carregar_urls('db/neko.json'),
+    "neko2": carregar_urls('db/neko2.json'),
+    "nezuko": carregar_urls('db/nezuko.json'),
+    "nsfwelisa": carregar_urls('db/nsfwelisa.json'),
+    "nsfwlolis": carregar_urls('db/nsfwlolis.json'),
+    "nsfw": carregar_urls('db/nsfw.json'),
+    "mia": carregar_urls('db/mia.json'),
+    "onepiece": carregar_urls('db/onepiece.json'),
+    "orgy": carregar_urls('db/orgy.json'),
+    "pack": carregar_urls('db/pack.json'),
+    "pokemon": carregar_urls('db/pokemon.json'),
+    "pussy": carregar_urls('db/pussy.json'),
+    "rize": carregar_urls('db/rize.json'),
+    "rose": carregar_urls('db/rose.json'),
+    "sagir": carregar_urls('db/sagir.json'),
+    "Sakura": carregar_urls('db/Sakura.json'),
+    "Sasuke": carregar_urls('db/Sasuke.json'),
+    "satanic": carregar_urls('db/satanic.json'),
+    "shotas": carregar_urls('db/shotas.json'),
+    "tentações": carregar_urls('db/tentações.json'),
+    "travazap": carregar_urls('db/travazap.json'),
+    "Tsunade": carregar_urls('db/Tsunade.json'),
+    "vídeo+18": carregar_urls('db/vídeo+18.json'),
+    "waifu": carregar_urls('db/waifu.json'),
+    "waifu2": carregar_urls('db/waifu2.json'),
+    "wallhp2": carregar_urls('db/wallhp2.json'),
+    "wallpapernime": carregar_urls('db/wallpapernime.json'),
+    "zettai": carregar_urls('db/zettai.json'),
 }
 
-@app.route('/api/<category>', methods=['GET'])
-def get_random_url(category):
-    if category not in categories:
-        return jsonify({
-            'error': {
-                'status': False,
-                'criador': criador,
-                'mensagem': 'ops :/ ocorreu um erro no servidor, tente novamente mais tarde'
+@app.route('/<category>', methods=['GET'])
+def get_url(category):
+    if category in urls:
+        url_list = urls[category]
+        if url_list:
+            random_url = random.choice(url_list)
+            response = {
+                "status": True,
+                "criador": criador,
+                "url": random_url
             }
-        }), 404
+        else:
+            response = {
+                "status": False,
+                "criador": criador,
+                "código": 404,
+                "mensagem": f"ei 🤨 Nao Achei Nenhum Link De Imagem Na Categoria {category}"
+            }
+    else:
+        response = {
+            "status": False,
+            "criador": criador,
+            "código": 404,
+            "mensagem": f"ei 🤨 Categoria {category} Não Encontrada"
+        }
 
-    try:
-        urls = load_urls(categories[category])
-        if not urls:
-            return jsonify({
-                'cdimg': {
-                    'status': False,
-                    'criador': criador,
-                    'código': 404,
-                    'mensagem': 'ei 🤨 Nao Achei Nenhum Link De Imagem Na Url'
-                }
-            }), 404
-        url = random.choice(urls)
-        return jsonify({
-            'url': url,
-            'status': True,
-            'criador': criador
-        })
-    except Exception as e:
-        return jsonify({
-            'error': {
-                'status': False,
-                'criador': criador,
-                'mensagem': 'ops :/ ocorreu um erro no servidor, tente novamente mais tarde'
-            }
-        }), 500
+    return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True
+    app.run(debug=True)
