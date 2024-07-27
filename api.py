@@ -4,7 +4,7 @@ import random
 
 app = Flask(__name__)
 
-criador = "NomeDoCriador"
+criador = "Chupa cu"
 
 def carregar_urls(arquivo):
     try:
@@ -25,25 +25,25 @@ urls = {
     "ahegao": carregar_urls('db/ahegao.json'),
     "akira": carregar_urls('db/akira.json'),
     "ass": carregar_urls('db/ass.json'),
-    "bonec": carregar_urls('db/bonec.json'),
-    "Boruto": carregar_urls('db/Boruto.json'),
+    "bonec": carregar_urls('db/bonek.json'),
+    "Boruto": carregar_urls('db/boruto.json'),
     "cosplayloli": carregar_urls('db/cosplayloli.json'),
     "cosplay": carregar_urls('db/cosplay.json'),
     "cosplaysagirl": carregar_urls('db/cosplaysagirl.json'),
     "cum": carregar_urls('db/cum.json'),
     "Deidara": carregar_urls('db/Deidara.json'),
-    "Elaine": carregar_urls('db/Elaine.json'),
-    "Emilia": carregar_urls('db/Emilia.json'),
+    "Elaine": carregar_urls('db/elaine.json'),
+    "Emilia": carregar_urls('db/emilia.json'),
     "ero": carregar_urls('db/ero.json'),
     "erza": carregar_urls('db/erza.json'),
     "feminotrava": carregar_urls('db/feminotrava.json'),
     "foto18": carregar_urls('db/foto18.json'),
     "GameWallp": carregar_urls('db/GameWallp.json'),
-    "Hinata": carregar_urls('db/Hinata.json'),
+    "Hinata": carregar_urls('db/hinata.json'),
     "itachi": carregar_urls('db/itachi.json'),
     "itori": carregar_urls('db/itori.json'),
-    "Lolis": carregar_urls('db/Lolis.json'),
-    "Madara": carregar_urls('db/Madara.json'),
+    "Lolis": carregar_urls('db/lolis.json'),
+    "Madara": carregar_urls('db/madara.json'),
     "manga": carregar_urls('db/manga.json'),
     "masturbation": carregar_urls('db/masturbation.json'),
     "meme": carregar_urls('db/meme.json'),
@@ -65,13 +65,13 @@ urls = {
     "rize": carregar_urls('db/rize.json'),
     "rose": carregar_urls('db/rose.json'),
     "sagir": carregar_urls('db/sagir.json'),
-    "Sakura": carregar_urls('db/Sakura.json'),
-    "Sasuke": carregar_urls('db/Sasuke.json'),
+    "Sakura": carregar_urls('db/sakura.json'),
+    "Sasuke": carregar_urls('db/sasuke.json'),
     "satanic": carregar_urls('db/satanic.json'),
     "shotas": carregar_urls('db/shotas.json'),
     "tentações": carregar_urls('db/tentações.json'),
     "travazap": carregar_urls('db/travazap.json'),
-    "Tsunade": carregar_urls('db/Tsunade.json'),
+    "Tsunade": carregar_urls('db/tsunade.json'),
     "vídeo+18": carregar_urls('db/vídeo+18.json'),
     "waifu": carregar_urls('db/waifu.json'),
     "waifu2": carregar_urls('db/waifu2.json'),
@@ -107,6 +107,5 @@ def get_url(category):
         }
 
     return jsonify(response)
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=PORT, debug=True)
