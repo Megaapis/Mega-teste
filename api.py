@@ -37,7 +37,7 @@ urls = {
     "ero": carregar_urls('db/ero.json'),
     "erza": carregar_urls('db/erza.json'),
     "feminotrava": carregar_urls('db/feminonotrava.json'),
-    "foto18": carregar_urls('db/fotinhas.json'),
+    "foto18": carregar_urls('db/fotinha.json'),
     "GameWallp": carregar_urls('db/GameWallp.json'),
     "Hinata": carregar_urls('db/hinata.json'),
     "itachi": carregar_urls('db/itachi.json'),
@@ -71,7 +71,7 @@ urls = {
     "tentações": carregar_urls('db/tentacles.json'),
     "travazap": carregar_urls('db/travazap.json'),
     "Tsunade": carregar_urls('db/tsunade.json'),
-    "vídeo+18": carregar_urls('db/videozinhos.json'),
+    "vídeo+18": carregar_urls('db/videozinho.json'),
     "waifu": carregar_urls('db/waifu.json'),
     "waifu2": carregar_urls('db/waifu2.json'),
     "wallhp2": carregar_urls('db/wallhp2.json'),
@@ -95,14 +95,14 @@ def get_url(category):
                 "status": False,
                 "criador": criador,
                 "código": 404,
-                "mensagem": f"ei 🤨 Não Achei Nenhum Link De Imagem Na Categoria {category}"
+                "mensagem": f"ei 🤨 Naum Achei Nenhum Link De Imagem Na Categoria {category}"
             }
     else:
         response = {
             "status": False,
             "criador": criador,
             "código": 404,
-            "mensagem": f"ei 🤨 Categoria {category} Não Encontrada"
+            "mensagem": f"ei 🤨 Categoria {category} Naum Encontrada"
         }
 
     return jsonify(response)
