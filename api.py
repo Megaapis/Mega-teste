@@ -31,6 +31,7 @@ urls = {
     "cosplay": carregar_urls('db/cosplay.json'),
     "cosplaysagiri": carregar_urls('db/cosplaysagiri.json'),
     "cum": carregar_urls('db/cum.json'),
+    "contasonly": carregar_urls('db/contasonly.json'),
     "Deidara": carregar_urls('db/deidara.json'),
     "elaina": carregar_urls('db/elaina.json'),
     "emilia": carregar_urls('db/emilia.json'),
@@ -49,6 +50,7 @@ urls = {
     "meme": carregar_urls('db/meme.json'),
     "memes-video": carregar_urls('db/memes-video.json'),
     "mikasa": carregar_urls('db/mikasa.json'),
+    "metadinhas": carregar_urls('metadinhas.json')
     "minato": carregar_urls('db/minato.json'),
     "neko": carregar_urls('db/neko.json'),
     "neko2": carregar_urls('db/neko2.json'),
@@ -58,6 +60,7 @@ urls = {
     "nsfwmia": carregar_urls('db/nsfwmia.json'),
     "onepiece": carregar_urls('db/onepiece.json'),
     "orgy": carregar_urls('db/orgy.json'),
+    "onlyfans" carregar_urls('db/onlyfans.json'),
     "pack": carregar_urls('db/pack.json'),
     "pokemon": carregar_urls('db/pokemon.json'),
     "pussy": carregar_urls('db/pussy.json'),
