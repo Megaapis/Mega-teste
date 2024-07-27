@@ -58,7 +58,7 @@ urls = {
     "nsfwmia": carregar_urls('db/nsfwmia.json'),
     "onepiece": carregar_urls('db/onepiece.json'),
     "orgy": carregar_urls('db/orgy.json'),
-    "pack": carregar_urls('db/pack.js'),
+    "pack": carregar_urls('db/pack.json'),
     "pokemon": carregar_urls('db/pokemon.json'),
     "pussy": carregar_urls('db/pussy.json'),
     "rize": carregar_urls('db/rize.json'),
