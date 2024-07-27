@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import json
 import random
+import os
 
 app = Flask(__name__)
 
@@ -19,6 +20,12 @@ def carregar_urls(arquivo):
     except Exception as e:
         print(f"Erro ao ler o arquivo {arquivo}: {e}")
         return []
+
+def carregar_contasonly():
+    return carregar_urls('db/contasonly.json')
+
+def carregar_metadinhas():
+    return carregar_urls('db/metadinhas.json')
 
 urls = {
     "aesthetic": carregar_urls('db/aesthetic.json'),
@@ -50,7 +57,7 @@ urls = {
     "meme": carregar_urls('db/meme.json'),
     "memes-video": carregar_urls('db/memes-video.json'),
     "mikasa": carregar_urls('db/mikasa.json'),
-    "metadinhas": carregar_urls('metadinhas.json')
+    "metadinhas": carregar_urls('db/metadinhas.json'),
     "minato": carregar_urls('db/minato.json'),
     "neko": carregar_urls('db/neko.json'),
     "neko2": carregar_urls('db/neko2.json'),
@@ -60,7 +67,7 @@ urls = {
     "nsfwmia": carregar_urls('db/nsfwmia.json'),
     "onepiece": carregar_urls('db/onepiece.json'),
     "orgy": carregar_urls('db/orgy.json'),
-    "onlyfans" carregar_urls('db/onlyfans.json'),
+    "onlyfans": carregar_urls('db/onlyfans.json'),
     "pack": carregar_urls('db/pack.json'),
     "pokemon": carregar_urls('db/pokemon.json'),
     "pussy": carregar_urls('db/pussy.json'),
@@ -109,7 +116,42 @@ def get_url(category):
         }
 
     return jsonify(response)
-import os
+
+@app.route('/contasonly', methods=['GET'])
+def get_contasonly():
+    contasonly_data = carregar_contasonly()
+    if contasonly_data:
+        response = {
+            "status": True,
+            "criador": criador,
+            "mensagens": contasonly_data
+        }
+    else:
+        response = {
+            "status": False,
+            "criador": criador,
+            "código": 404,
+            "mensagem": "Arquivo contasonly.json não encontrado ou vazio."
+        }
+    return jsonify(response)
+
+@app.route('/metadinhas', methods=['GET'])
+def get_metadinhas():
+    metadinhas_data = carregar_metadinhas()
+    if metadinhas_data:
+        response = {
+            "status": True,
+            "criador": criador,
+            "mensagens": metadinhas_data
+        }
+    else:
+        response = {
+            "status": False,
+            "criador": criador,
+            "código": 404,
+            "mensagem": "Arquivo metadinhas.json não encontrado ou vazio."
+        }
+    return jsonify(response)
 
 PORT = int(os.environ.get('PORT', 5000))
 
