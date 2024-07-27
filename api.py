@@ -55,24 +55,23 @@ urls = {
     "nezuko": carregar_urls('db/nezuko.json'),
     "nsfwelisa": carregar_urls('db/nsfwelisa.json'),
     "nsfwlolis": carregar_urls('db/nsfwlolis.json'),
-    "nsfw": carregar_urls('db/nsfw.json'),
-    "mia": carregar_urls('db/mia.json'),
+    "nsfwmia": carregar_urls('db/nsfwmia.json'),
     "onepiece": carregar_urls('db/onepiece.json'),
     "orgy": carregar_urls('db/orgy.json'),
-    "pack": carregar_urls('db/pack.json'),
+    "pack": carregar_urls('db/pack.js'),
     "pokemon": carregar_urls('db/pokemon.json'),
     "pussy": carregar_urls('db/pussy.json'),
     "rize": carregar_urls('db/rize.json'),
     "rose": carregar_urls('db/rose.json'),
-    "sagir": carregar_urls('db/sagir.json'),
+    "sagir": carregar_urls('db/sagirl.json'),
     "Sakura": carregar_urls('db/sakura.json'),
     "Sasuke": carregar_urls('db/sasuke.json'),
     "satanic": carregar_urls('db/satanic.json'),
     "shotas": carregar_urls('db/shotas.json'),
-    "tentações": carregar_urls('db/tentações.json'),
+    "tentações": carregar_urls('db/tentacles.json'),
     "travazap": carregar_urls('db/travazap.json'),
     "Tsunade": carregar_urls('db/tsunade.json'),
-    "vídeo+18": carregar_urls('db/vídeo+18.json'),
+    "vídeo+18": carregar_urls('db/video+18.json'),
     "waifu": carregar_urls('db/waifu.json'),
     "waifu2": carregar_urls('db/waifu2.json'),
     "wallhp2": carregar_urls('db/wallhp2.json'),
@@ -107,5 +106,9 @@ def get_url(category):
         }
 
     return jsonify(response)
+import os
+
+PORT = int(os.environ.get('PORT', 5000))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=PORT, debug=True)
