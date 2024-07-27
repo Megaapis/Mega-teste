@@ -121,10 +121,11 @@ def get_url(category):
 def get_contasonly():
     contasonly_data = carregar_contasonly()
     if contasonly_data:
+        random_item = random.choice(contasonly_data)
         response = {
             "status": True,
             "criador": criador,
-            "mensagens": contasonly_data
+            "mensagem": random_item
         }
     else:
         response = {
@@ -139,10 +140,11 @@ def get_contasonly():
 def get_metadinhas():
     metadinhas_data = carregar_metadinhas()
     if metadinhas_data:
+        random_item = random.choice(metadinhas_data)
         response = {
             "status": True,
             "criador": criador,
-            "mensagens": metadinhas_data
+            "mensagem": random_item
         }
     else:
         response = {
