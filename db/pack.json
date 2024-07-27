@@ -1,4 +1,5 @@
-const travazap = ["https://telegra.ph/file/3b09692a068645db85eee.jpg",
+ [
+"https://telegra.ph/file/3b09692a068645db85eee.jpg",
 "https://telegra.ph/file/a25416c3a374a611a262a.jpg",
 "https://telegra.ph/file/8817c756bbc7b00da8306.jpg",
 "https://telegra.ph/file/5ef15404fda0da1da38f4.jpg",
@@ -296,11 +297,3 @@ const foto_18 = [
 "https://telegra.ph/file/8024e1d116d6446c5f7eb.jpg",
 "https://telegra.ph/file/ae74f81ff10a8f005091b.jpg"
 ]
-
-
-
-module.exports = {
-foto_18,
-video_18,
-travazap
-}
