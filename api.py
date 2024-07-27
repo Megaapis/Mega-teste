@@ -6,15 +6,20 @@ app = Flask(__name__)
 
 criador = "NomeDoCriador"
 
-# Função para carregar URLs a partir de arquivos JSON
 def carregar_urls(arquivo):
     try:
         with open(arquivo, 'r') as file:
             return json.load(file)
     except FileNotFoundError:
+        print(f"Arquivo {arquivo} não encontrado.")
+        return []
+    except json.JSONDecodeError as e:
+        print(f"Erro de decodificação JSON no arquivo {arquivo}: {e}")
+        return []
+    except Exception as e:
+        print(f"Erro ao ler o arquivo {arquivo}: {e}")
         return []
 
-# Carregando URLs de diferentes categorias
 urls = {
     "aesthetic": carregar_urls('db/aesthetic.json'),
     "ahegao": carregar_urls('db/ahegao.json'),
@@ -91,7 +96,7 @@ def get_url(category):
                 "status": False,
                 "criador": criador,
                 "código": 404,
-                "mensagem": f"ei 🤨 Nao Achei Nenhum Link De Imagem Na Categoria {category}"
+                "mensagem": f"ei 🤨 Não Achei Nenhum Link De Imagem Na Categoria {category}"
             }
     else:
         response = {
