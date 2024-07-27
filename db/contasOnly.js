@@ -1,7 +1,5 @@
-const fs = require('fs')
-
-var contaOnly = [`
-Luiza russo (mansão maromba)
+[ 
+  `Luiza russo (mansão maromba)
 via telegram> https://t.me/+8cJ7yGnq5fI2YjYx
 `,`
 Luiza blue 
@@ -104,6 +102,3 @@ Quinn Wild
 via telegram> https://t.me/+xygzLnkF72A0YjAx
 `
 ]
-module.exports = {
-contaOnly
-}
