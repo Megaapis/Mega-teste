@@ -1,6 +1,4 @@
-const fs = require('fs')
-
-var only = [
+    [
     "https://telegra.ph/file/93ab540c8a22a16b70074.jpg",
     "https://telegra.ph/file/2566ba7db12bcfc649f20.jpg",
     "https://telegra.ph/file/3aa85abfc5a7a045c0fce.jpg",
@@ -622,6 +620,3 @@ var only = [
     "https://telegra.ph/file/1008e53265330550009b6.jpg",
     "https://telegra.ph/file/e0ce7ffa4e60954e7a60e.jpg"
 ]
-module.exports = {
-only
-}
